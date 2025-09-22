@@ -7,9 +7,6 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const q = searchParams.get('q') || 'react'
 
-  // 例：環境変数（必要なら .env に EXAMPLE_API_KEY=...）
-  const _apiKey = process.env.EXAMPLE_API_KEY
-
   const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(q)}&limit=10`
   try {
     const res = await fetch(url, { headers: { 'User-Agent': 'level3-nextjs-sample' } })
